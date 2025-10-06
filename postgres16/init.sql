@@ -1,7 +1,7 @@
 CREATE SCHEMA "SalesLT";
 
 CREATE TABLE "SalesLT"."Address" (
-    "AddressID" INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+    "AddressID" INT NOT NULL GENERATED ALWAYS AS IDENTITY,
     "AddressLine1" VARCHAR(60) NOT NULL,
     "AddressLine2" VARCHAR(60),
     "City" VARCHAR(30) NOT NULL,
@@ -32,7 +32,7 @@ FROM '/docker-entrypoint-initdb.d/SalesLT.Address.csv'
 WITH DELIMITER ',' NULL 'NULL' CSV HEADER;
 
 CREATE TABLE "SalesLT"."Customer" (
-    "CustomerID" INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+    "CustomerID" INT NOT NULL GENERATED ALWAYS AS IDENTITY,
     "NameStyle" BOOLEAN NOT NULL DEFAULT(FALSE),
     "Title" VARCHAR(8),
     "FirstName" VARCHAR(50),
@@ -101,7 +101,7 @@ FROM '/docker-entrypoint-initdb.d/SalesLT.CustomerAddress.csv'
 WITH DELIMITER ',' NULL 'NULL' CSV HEADER;
 
 CREATE TABLE "SalesLT"."ProductCategory" (
-    "ProductCategoryID" INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+    "ProductCategoryID" INT NOT NULL GENERATED ALWAYS AS IDENTITY,
     "ParentProductCategoryID" INT,
     "Name" VARCHAR(50) NOT NULL,
     "RowGuid" UUID NOT NULL DEFAULT(GEN_RANDOM_UUID()),
@@ -127,7 +127,7 @@ FROM '/docker-entrypoint-initdb.d/SalesLT.ProductCategory.csv'
 WITH DELIMITER ',' NULL 'NULL' CSV HEADER;
 
 CREATE TABLE "SalesLT"."ProductModel" (
-    "ProductModelID" INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+    "ProductModelID" INT NOT NULL GENERATED ALWAYS AS IDENTITY,
     "Name" VARCHAR(50) NOT NULL,
     "CatalogDescription" TEXT,
     "RowGuid" UUID NOT NULL DEFAULT(GEN_RANDOM_UUID()),
@@ -145,7 +145,7 @@ FROM '/docker-entrypoint-initdb.d/SalesLT.ProductModel.csv'
 WITH DELIMITER ',' NULL 'NULL' CSV HEADER;
 
 CREATE TABLE "SalesLT"."ProductDescription" (
-    "ProductDescriptionID" INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+    "ProductDescriptionID" INT NOT NULL GENERATED ALWAYS AS IDENTITY,
     "Description" VARCHAR(400) NOT NULL,
     "RowGuid" UUID NOT NULL DEFAULT(GEN_RANDOM_UUID()),
     "ModifiedDate" TIMESTAMP NOT NULL DEFAULT(NOW()),
@@ -191,7 +191,7 @@ FROM '/docker-entrypoint-initdb.d/SalesLT.ProductModelProductDescription.csv'
 WITH DELIMITER ',' NULL 'NULL' CSV HEADER;
 
 CREATE TABLE "SalesLT"."Product" (
-    "ProductID" INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+    "ProductID" INT NOT NULL GENERATED ALWAYS AS IDENTITY,
     "Name" VARCHAR(50) NOT NULL,
     "ProductNumber" VARCHAR(25) NOT NULL,
     "Color" VARCHAR(15),
@@ -250,7 +250,7 @@ FROM '/docker-entrypoint-initdb.d/SalesLT.Product.csv'
 WITH DELIMITER ',' NULL 'NULL' CSV HEADER;
 
 CREATE TABLE "SalesLT"."SalesOrderHeader" (
-    "SalesOrderID" INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+    "SalesOrderID" INT NOT NULL GENERATED ALWAYS AS IDENTITY,
     "RevisionNumber" SMALLINT NOT NULL DEFAULT(0),
     "OrderDate" TIMESTAMP NOT NULL DEFAULT(NOW()),
     "DueDate" TIMESTAMP NOT NULL,
