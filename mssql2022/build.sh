@@ -9,4 +9,4 @@ else
     echo "AdventureWorksLT2022 backup file already downloaded. Skipping.";
 fi
 echo "Building docker image.";
-docker build . -t openentity/adventureworkslt:2022 --build-arg BAK_FILE=./adventureworkslt.bak;
+docker build . -t openentity/adventureworkslt:mssql2022;
