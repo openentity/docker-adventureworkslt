@@ -21,8 +21,13 @@ Docker image of AdventureWorksLT sample database.
 
 ## PostgresSql with Docker Desktop
 ### Build docker image
-1. Change current directory to `postgres16`;
-3. Run `docker build . -t openentity/adventureworkslt:postgres16`.
+1. Change current directory to `postgres18`;
+2. Run `docker build . -t openentity/adventureworkslt:postgres18`.
+
+If `docker build` fails due to permission issues such as `failed to fetch anonymous token`, you can make a `docker pull` before running `docker builder`:
+```
+docker pull postgres:18
+```
 
 ### Settings to start container
 - Container Name: `Postgres.AdventureWorksLT`
