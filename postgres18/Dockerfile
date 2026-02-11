@@ -1,5 +1,7 @@
 FROM postgres:18
 
+LABEL org.opencontainers.image.source=https://github.com/openentity/docker-adventureworkslt
+
 # Set environment variables for PostgreSQL
 ENV POSTGRES_DB=AdventureWorksLT
 

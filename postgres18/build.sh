@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-docker build . -t openentity/adventureworks:postgres16;
+docker build . -t ghcr.io/openentity/docker-adventureworkslt:postgres18;
