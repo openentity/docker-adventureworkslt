@@ -5,8 +5,7 @@ Docker image of AdventureWorksLT sample database.
 ## SQL Sever with Docker Desktop
 ### Build docker image
 1. Change current directory to `mssql2022`;
-2. Download file https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksLT2022.bak to current directory;
-3. Run `docker build . -t openentity/adventureworkslt:mssql2022`.
+2. Run `docker build . -t openentity/adventureworkslt:mssql2022`.
 
 ### Settings to start container
 - Container Name: `MSSQL.AdventureWorksLT`
