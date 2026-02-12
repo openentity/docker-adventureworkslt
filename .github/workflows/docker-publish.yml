@@ -7,7 +7,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ env.REGISTRY }}/${{ github.repository }}
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build_and_publish:
@@ -37,11 +37,11 @@ jobs:
       - name: mssql2022
         run: |
           cd $GITHUB_WORKSPACE/mssql2022
-          docker build . -t ${{ env.IMAGE_NAME }}:mssql2022 --platform linux/amd64,linux/arm64
-          docker push ${{ env.IMAGE_NAME }}:mssql2022
+          docker build . -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:mssql2022 --platform linux/amd64,linux/arm64
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:mssql2022
 
       - name: postgres18
         run: |
           cd $GITHUB_WORKSPACE/postgres18
-          docker build . -t /${{ env.IMAGE_NAME }}:postgres18 --platform linux/amd64,linux/arm64
-          docker push ${{ env.IMAGE_NAME }}:postgres18
+          docker build . -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:postgres18 --platform linux/amd64,linux/arm64
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:postgres18
