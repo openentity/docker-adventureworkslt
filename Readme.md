@@ -1,4 +1,4 @@
-# Docker AdventureWorksLT
+# AdventureWorksLT Database for Testing
 
 Docker image of AdventureWorksLT sample database.
 
