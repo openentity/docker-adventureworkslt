@@ -1,4 +1,4 @@
-name: Publish Docker Image
+name: docker-publish
 
 on:
   workflow_dispatch
@@ -32,10 +32,10 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/mssql2022
           docker build . -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:mssql2022
-          docker publish ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:mssql2022
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:mssql2022
 
       - name: postgres18
         run: |
           cd $GITHUB_WORKSPACE/postgres18
           docker build . -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:postgres18
-          docker publish ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:postgres18
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:postgres18
