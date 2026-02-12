@@ -9,6 +9,6 @@ EXPOSE 1433
 WORKDIR /
 COPY ./adventureworkslt.bak ./adventureworkslt.bak
 COPY ./install.sql .
-COPY ./install.sh .
-COPY ./startup.sh .
+COPY --chmod=0755 ./install.sh .
+COPY --chmod=0755 ./startup.sh .
 CMD /bin/bash ./startup.sh
