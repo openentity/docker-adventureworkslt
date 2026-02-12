@@ -1,0 +1,41 @@
+name: Publish Docker Image
+
+on:
+  workflow_dispatch
+  
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log into registry ${{ env.REGISTRY }}
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: mssql2022
+        run: |
+          cd $GITHUB_WORKSPACE/mssql2022
+          docker build . ${{ env.REGISTRY }}/$({ env.IMAGE_NAME })/:mssql2022
+          docker publish ${{ env.REGISTRY }}/$({ env.IMAGE_NAME })/:mssql2022
+
+      - name: postgres18
+        run: |
+          cd $GITHUB_WORKSPACE/postgres18
+          docker build . ${{ env.REGISTRY }}/$({ env.IMAGE_NAME })/:postgres18
+          docker publish ${{ env.REGISTRY }}/$({ env.IMAGE_NAME })/:postgres18
