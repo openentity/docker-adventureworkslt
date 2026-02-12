@@ -31,11 +31,11 @@ jobs:
       - name: mssql2022
         run: |
           cd $GITHUB_WORKSPACE/mssql2022
-          docker build . ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/:mssql2022
+          docker build . -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/:mssql2022
           docker publish ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/:mssql2022
 
       - name: postgres18
         run: |
           cd $GITHUB_WORKSPACE/postgres18
-          docker build . ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/:postgres18
+          docker build . -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/:postgres18
           docker publish ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/:postgres18
