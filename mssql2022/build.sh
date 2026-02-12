@@ -2,4 +2,4 @@
 set -e
 
 echo "Building docker image.";
-docker build . -t ghcr.io/openentity/docker-adventureworkslt:mssql2022;
+docker build . -t ghcr.io/openentity/adventureworksltdb:mssql2022;
