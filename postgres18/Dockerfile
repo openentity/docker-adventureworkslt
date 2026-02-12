@@ -1,7 +1,7 @@
 FROM postgres:18
 
-LABEL org.opencontainers.image.source = "https://github.com/openentity/adventureworksltdb" \
-      org.opencontainers.image.description = "Sample AdventureWorksLT database for testing"
+LABEL org.opencontainers.image.source="https://github.com/openentity/adventureworksltdb" \
+      org.opencontainers.image.description="Sample AdventureWorksLT database for testing"
 
 # Set environment variables for PostgreSQL
 ENV POSTGRES_DB=AdventureWorksLT
